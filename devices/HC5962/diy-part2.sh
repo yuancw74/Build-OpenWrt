@@ -24,18 +24,19 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Ma
 # Add Packages
 git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 # git clone https://github.com/MapesxGM/luci-app-tencentddns package/luci-app-tencentddns
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+# git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # Modify the number of connections
-cat >> package/base-files/files/etc/sysctl.conf <<EOF
-net.netfilter.nf_conntrack_acct=1
-net.netfilter.nf_conntrack_checksum=0
-net.netfilter.nf_conntrack_max=65535
-net.netfilter.nf_conntrack_tcp_timeout_established=7440
-net.netfilter.nf_conntrack_udp_timeout=60
-net.netfilter.nf_conntrack_udp_timeout_stream=180
-net.netfilter.nf_conntrack_helper=1
-EOF
+# cat >> package/base-files/files/etc/sysctl.conf <<EOF
+# net.netfilter.nf_conntrack_acct=1
+# net.netfilter.nf_conntrack_checksum=0
+
+# net.netfilter.nf_conntrack_max=65535
+# net.netfilter.nf_conntrack_tcp_timeout_established=7440
+# net.netfilter.nf_conntrack_udp_timeout=60
+# net.netfilter.nf_conntrack_udp_timeout_stream=180
+# net.netfilter.nf_conntrack_helper=1
+# EOF
 
 # disable bridge firewalling
-sed -i 's/=1/=0/g' package/kernel/linux/files/sysctl-br-netfilter.conf
+# sed -i 's/=1/=0/g' package/kernel/linux/files/sysctl-br-netfilter.conf
